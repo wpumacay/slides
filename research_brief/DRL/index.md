@@ -128,6 +128,8 @@ class: center, middle, inverse
 
 <img src = "imgs/img_atari_dqn.png" style = "position: absolute; top: 30%; left: 10%;" >
 
+<p style = "position: absolute; top:90%; left: 30%"> Architecture of DQN, from paper [1]</p>
+
 ---
 
 <!-- logo -->
@@ -137,7 +139,11 @@ class: center, middle, inverse
 
 <img src = "imgs/img_locomotion_deepmind.png" style = "position: absolute; top: 30%; left: 15%;" >
 
+<p style = "position: absolute; top:45%; left: 20%"> Humanoid running in simulated environment, from paper [2] </p>
+
 <img src = "imgs/img_deepterrain.png" style = "position: absolute; top: 60%; left: 10%;" >
+
+<p style = "position: absolute; top:80%; left: 20%"> Quadruped running in simulated environment, from paper [4]</p>
 
 ---
 
@@ -148,7 +154,11 @@ class: center, middle, inverse
 
 <img src = "imgs/img_deeploco.png" style = "position: absolute; top: 25%; left: 30%;" >
 
+<p style = "position: absolute; top:50%; left: 20%"> Biped doing task in simulated environment, from paper [5]</p>
+
 <img src = "imgs/img_stuntman_drl.png" style = "position: absolute; top: 60%; left: 10%;" >
+
+<p style = "position: absolute; top:90%; left: 20%"> Virtual stuntman in simulated environment, from paper [6]</p>
 
 ---
 
