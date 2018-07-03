@@ -1,98 +1,104 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Quick presentation on research interests about Deep Reinforcement Learning</title>
-		<style>
-			body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-h1, h2, h3 {
-	font-weight: 400;
-	margin-bottom: 0;
-}
-.remark-slide-content h1 { font-size: 3em; }
-.remark-slide-content h2 { font-size: 2em; }
-.remark-slide-content h3 { font-size: 1.6em; }
-.footnote {
-	position: absolute;
-	bottom: 3em;
-}
-li p { line-height: 1.25em; }
-.red { color: #fa0000; }
-.large { font-size: 2em; }
-a, a > code {
-	color: rgb(249, 38, 114);
-	text-decoration: none;
-}
-code {
-	background: none repeat scroll 0 0 #F8F8FF;
-  border: 1px solid #DEDEDE;
-  border-radius: 3px 	;
-  padding: 0 0.2em;
-}
-.remark-code, .remark-inline-code { font-family: "Bitstream Vera Sans Mono", "Courier", monospace; }
-.remark-code-line-highlighted     { background-color: #373832; }
-.pull-left {
-	float: left;
-	width: 47%;
-}
-.pull-right {
-	float: right;
-	width: 47%;
-}
-.pull-right ~ p {
-	clear: both;
-}
-#slideshow .slide .content code {
-	font-size: 0.8em;
-}
-#slideshow .slide .content pre code {
-	font-size: 0.9em;
-	padding: 15px;
-}
-.main-title, .title {
-	background: #272822;
-	color: #777872;
-	text-shadow: 0 0 20px #333;
-}
-.title h1, .title h2, .main-title h1, .main-title h2 {
-	color: #f3f3f3;
-	line-height: 0.8em;
-}
-/* Custom */
-.remark-code {
-	display: block;
-	padding: 0.5em;
-}
 
-		</style>
-	</head>
-	<body>
-		<textarea id="source">
+<head>
+    <title>Slides DRL quick look</title>
+    <meta charset="utf-8">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-# Quick presentation on research interests about Deep Reinforcement Learning
+        body 
+        {
+            font-family: 'Droid Serif';
+            background-color: gray;
+        }
 
----
-## Slide 1
+        h1, h2, h3 
+        {
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: 400;
+            margin-bottom: 0;
+        }
 
-TODO
+        .remark-slide-content h1 { font-size: 4em; }
+        .remark-slide-content h2 { font-size: 3em; }
+        .remark-slide-content h3 { font-size: 2em; }
+        .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 
----
-## Slide 2
+        .inverse 
+        {
+            background: #272822;
+            color: #777872;
+            text-shadow: 0 0 20px #333;
+        }
+        .inverse h1, .inverse h2
+        {
+            color: #f3f3f3;
+            line-height: 0.8em;
+        }
 
-TODO
+        .logo
+        {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
 
----
-## Slide 3
+        .image_centered
+        {
+            position: absolute;
+            top: 40%;
+            left: 30%;
+        }
 
+        h2
+        {
+            position: absolute;
+            top: 10%;
+        }
 
-TODO
-		</textarea>
-		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
-		<script>
-			var slideshow = remark.create();
-		</script>
-		<script></script>
-	</body>
+        .slide_text_content
+        {
+            position: absolute;
+            top: 25%;
+            left: 10%;
+            width: 80%;
+        }
+
+        .footnote
+        {
+            position: absolute;
+            bottom: 1em;
+            left: 1em;
+        }
+
+        .red { color: #fa0000; }
+
+    </style>
+</head>
+
+<body>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <script>
+        var options = { sourceUrl : 'index.md' };
+        var renderMath = function () {
+            renderMathInElement( document.body, { delimiters: [ // mind the order of delimiters(!?)
+                                                        {left: "$$", right: "$$", display: true},
+                                                        {left: "$", right: "$", display: false},
+                                                        {left: "\\[", right: "\\]", display: true},
+                                                        {left: "\\(", right: "\\)", display: false},
+                                                    ]
+                                                }
+                                );
+        };
+        var slideshow = remark.create( options, renderMath );
+    </script>
+</body>
+
 </html>
