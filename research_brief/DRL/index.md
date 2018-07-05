@@ -126,7 +126,8 @@ class: center, middle, inverse
 
 ## Deep Q-Networks
 
-<img src = "imgs/img_atari_dqn.png" style = "position: absolute; top: 30%; left: 10%;" >
+<img src = "imgs/img_atari_dqn_1.png" style = "position: absolute; top: 40%; left: 5%;" >
+<img src = "imgs/img_atari_dqn_2.png" style = "position: absolute; top: 20%; left: 50%;" >
 
 <p style = "position: absolute; top:90%; left: 30%"> Architecture of DQN, from paper [1]</p>
 
