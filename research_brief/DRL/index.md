@@ -56,7 +56,7 @@ Reinforcement learning is a learning paradigm in which an agent learns by intera
 <!-- logo -->
 .logo[![logo](imgs/img_logo.jpg)]
 
-## Markov decision processes ( MDP )
+## Policies
 
 .slide_text_content[
     The solution to a MDP is a policy, which is a 'function' that returns an action for each given state the agent encounters. The best solution is called optimal policy, which is the policy that maximizes the expected sum of rewards over a trajectory started at an initial state.
