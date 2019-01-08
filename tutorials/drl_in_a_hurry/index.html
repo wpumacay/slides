@@ -1,104 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>DeepRL for people in a hurry</title>
-    <meta charset="utf-8">
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+    <head>
+        <title>DeepRL for people in a hurry</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="index.css" media="screen"/>
+    </head>
 
-        body 
-        {
-            font-family: 'Droid Serif';
-            background-color: gray;
-        }
-
-        h1, h2, h3 
-        {
-            font-family: 'Yanone Kaffeesatz';
-            font-weight: 400;
-            margin-bottom: 0;
-        }
-
-        .remark-slide-content h1 { font-size: 4em; }
-        .remark-slide-content h2 { font-size: 3em; }
-        .remark-slide-content h3 { font-size: 2em; }
-        .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-
-        .inverse 
-        {
-            background: #272822;
-            color: #777872;
-            text-shadow: 0 0 20px #333;
-        }
-        .inverse h1, .inverse h2
-        {
-            color: #f3f3f3;
-            line-height: 0.8em;
-        }
-
-        .logo
-        {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-        }
-
-        .image_centered
-        {
-            position: absolute;
-            top: 40%;
-            left: 30%;
-        }
-
-        h2
-        {
-            position: absolute;
-            top: 10%;
-        }
-
-        .slide_text_content
-        {
-            position: absolute;
-            top: 25%;
-            left: 10%;
-            width: 80%;
-        }
-
-        .footnote
-        {
-            position: absolute;
-            bottom: 1em;
-            left: 1em;
-        }
-
-        .red { color: #fa0000; }
-
-    </style>
-</head>
-
-<body>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-    <script>
-        var options = { sourceUrl : 'index.md' };
-        var renderMath = function () {
-            renderMathInElement( document.body, { delimiters: [ // mind the order of delimiters(!?)
-                                                        {left: "$$", right: "$$", display: true},
-                                                        {left: "$", right: "$", display: false},
-                                                        {left: "\\[", right: "\\]", display: true},
-                                                        {left: "\\(", right: "\\)", display: false},
-                                                    ]
-                                                }
-                                );
-        };
-        var slideshow = remark.create( options, renderMath );
-    </script>
-</body>
+    <body>
+        <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+        <script>
+            var options = { sourceUrl : 'index.md' };
+            var renderMath = function () {
+                renderMathInElement( document.body, { delimiters: [ // mind the order of delimiters(!?)
+                                                            {left: "$$", right: "$$", display: true},
+                                                            {left: "$", right: "$", display: false},
+                                                            {left: "\\[", right: "\\]", display: true},
+                                                            {left: "\\(", right: "\\)", display: false},
+                                                        ]
+                                                    }
+                                    );
+            };
+            var slideshow = remark.create( options, renderMath );
+        </script>
+    </body>
 
 </html>
