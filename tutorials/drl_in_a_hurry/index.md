@@ -273,6 +273,28 @@ class: center, middle, inverse
 
 ---
 
+## RL background: Policies
+
+.slide_text_content[
+*   In order to get the most expected return possible, the agent has to pick its
+    actions accordingly in each state it encounters.
+*   This can be thought as a mapping between the state the agent is currently in
+    and the action it should take. This mapping is called a **Policy** and is denoted
+    by \\( \pi \\)
+*   This relation can be either **deterministic** (pick a single action given the current state),
+    or **stochastic** (pick a single action from a distribution given by the current state).
+*   Thus we have two kind of policies: **deterministic policies** \\( a_t = \pi(s_t) \\), and
+    **stochastic policies** \\( a_t \sim \pi( a | s_t ) \\).
+]
+
+---
+
+## RL background: Policies
+
+<img src="imgs/img_rl_policies.png" style="position: absolute; top: 25%; left: 10%; width: 90%; height: 70%">
+
+---
+
 ## Comparison to Supervised Learning
 
 .slide_text_content[
