@@ -6,6 +6,16 @@ class: center, middle, inverse
 
 ---
 
+## Just an announcement
+
+.slide_text_content[
+*   link: https://khipu.ai
+]
+
+<img src = "imgs/img_khipu.png" style = "position: absolute; top: 40%; left: 18%; width: 65%; height: 45%">
+
+---
+
 ## OUTLINE
 
 .slide_text_content[
@@ -20,12 +30,14 @@ class: center, middle, inverse
 *   Policy based methods
     *   Vanilla Policy Gradients
     *   Improving PG
-    *   Actor-Critic
 *   An overview of DeepRL
     *   Why DeepRL?
     *   Case study: DQN
     *   Case study: PPO
 ]
+
+<br>
+[Slides: https://wpumacay.github.io/slides/tutorials/drl_in_a_hurry]
 
 ---
 class: center, middle, inverse
@@ -1150,15 +1162,15 @@ class: center, middle
 
 ---
 
-## MC variants : visits
+## MC prediction with incremental updates
+
+<img src="imgs/img_rl_mc_incremental.png" style="position: absolute; top: 30%; left: 15%; width: 70%; height: 60%">
 
 ---
 
-## MC variants : incremental updates
+## Constant-alpha MC prediction
 
----
-
-## MC variants : constant-alpha updates
+<img src="imgs/img_rl_mc_constant_alpha.png" style="position: absolute; top: 30%; left: 15%; width: 70%; height: 60%">
 
 ---
 
@@ -1499,13 +1511,98 @@ class: center, middle
 
 ---
 
+## Policy Gradients
+
+.slide_text_content[
+*   PG is a policy based method that searchs for the weights of the parametrized
+    policy \\( \pi_\theta \\) by computing a "gradient" of an objective function.
+*   The objective function \\( \mathbb{E} \lbrace G_t \rbrace \\) is an expectation,
+    so we can't actually take the gradient directly.
+*   Instead, we will derive a way to compute an approximation of the actual gradient
+    by samples.
+*   Some new notation: A trajectory \\( \tau \\) is a set of states and actions experienced
+    by the agent in one interaction using its policy.
+]
+
+<img src="imgs/img_rl_pg_trajectory.png" style="position: absolute; top: 70%; left: 25%;">
+
+---
+
+## Deriving PG
+
+<img src="imgs/img_rl_pg_derivation_1.png" style="position: absolute; top: 30%; left: 25%; width: 50%; height: 65%">
+
+---
+
+## Deriving PG
+
+<img src="imgs/img_rl_pg_derivation_2.png" style="position: absolute; top: 30%; left: 15%;">
+
+---
+
+## Deriving PG
+
+<img src="imgs/img_rl_pg_derivation_2.png" style="position: absolute; top: 30%; left: 15%;">
+<img src="imgs/img_rl_pg_derivation_3.png" style="position: absolute; top: 65%; left: 15%;">
+
+---
+
+## PG intuition
+
+.slide_text_content[
+*   PG tries to increase the probability of choosing good action, by moving the 
+    weights in the right direction according to the reward of the trajectory.
+]
+
+<img src="imgs/img_rl_pg_intuition.png" style="position: absolute; top: 42.5%; left: 10%;">
+
+<img src="imgs/img_rl_pg_intuition_expression.png" style="position: absolute; top: 40%; left: 25%;">
+
+---
+
 class: center, middle
 # Improving PG
 
 ---
 
-class: center, middle
-# Actor-Critic
+## Baselines
+
+.slide_text_content[
+*   We can substract an amount \\( b(s) \\) from the return of the trajectory
+    \\( G_\tau \\) and the gradient is still valid (it goes away when expanding,
+    because it does not depend on the parameters).
+]
+
+<img src="imgs/img_pg_with_baseline.png" style="position: absolute; top: 70%; left: 25%;">
+
+---
+
+## Baselines
+
+.slide_text_content[
+*   We can substract an amount \\( b(s) \\) from the return of the trajectory
+    \\( G_\tau \\) and the gradient is still valid (it goes away when expanding,
+    because it does not depend on the parameters).
+*   Some choices include :
+    *   Constant baseline: \\( b = \mathbb{E} \lbrace G(\tau) \rbrace = \frac{1}{m} \sum_i^m G(\tau^i) \\)
+    *   Optimal constant baseline
+    *   Time dependent baseline
+    *   State-dependent expected return: \\( b(s_t) = V^\pi (s_t) \\)
+]
+
+<img src="imgs/img_pg_with_baseline.png" style="position: absolute; top: 70%; left: 25%;">
+
+---
+
+## Reducing from temporal structure
+
+.slide_text_content[
+*   We can also take advantage that some rewards over a trajectory are not influenced
+    by the actions taking later.
+*   We can use this fact to reduce even more the PG computation.
+]
+
+<img src="imgs/img_pg_remove_temporal_structure.png" style="position: absolute; top: 45%; left: 20%;">
 
 ---
 
@@ -1516,15 +1613,152 @@ class: center, middle, inverse
 
 ## Why DeepRL?
 
+.slide_text_content[
+*   We can scale up RL to more complex tasks by using function approximation.
+*   But we still need to compute some features that are hand engineered (sounds familiar?).
+*   Why don't we learn these features along with the behaviour of the agent?
+*   This is were Deep Neural Networks come into play, thus **Deep Reinforcement Learning** (DeepRL).
+]
+
+---
+
+## Why DeepRL?
+
+<img src="imgs/img_rl_drl_motivation_1.png" style="position: absolute; top: 25%; left: 10%; width: 70%; height: 60%;">
+
+---
+
+## Why DeepRL?
+
+<img src="imgs/img_rl_drl_motivation_2.png" style="position: absolute; top: 25%; left: 10%; width: 70%; height: 60%;">
+
+---
+
+## DeepRL
+
+.slide_text_content[
+*   In very simple terms, DeepRL is the RL framework we have studied, but using
+    Deep models for function approximation.
+*   We can use these models to approximate:
+    *   The State-value function: \\( V_\theta (s) \\)
+    *   The Action-value function: \\( Q_\theta (s,a) \\)
+    *   The policy : \\( \pi_\theta (a|s) \\)
+]
+
 ---
 
 ## Case study: DQN
 
----
-
-## Case study: PPO
+<iframe style="position: absolute; top: 30%; left: 15%; width: 70%; height: 60%;" src="https://www.youtube.com/embed/TmPfTpjtdgg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
+
+## Case study: DQN
+
+<img src="imgs/img_rl_dqn_atari.png" style="position: absolute; top: 30%; left: 15%; width: 70%; height: 60%;">
+
+---
+
+## Case study: DQN
+
+<img src="imgs/img_rl_dqn_algorithm.png" style="position: absolute; top: 30%; left: 15%; width: 60%; height: 60%;">
+
+---
+
+## Experience replay
+
+.slide_text_content[
+*   One of the contributions was the use of a **Replay Buffer**.
+*   Recall that the data we get is **i.i.d**, and that the data we see in one
+    timestep \\( s_t, a_t, r_t \\) is correlated to the data from one timestep 
+    before.
+*   To break this correlation the authors made use of a buffer of samples from
+    which we can sample to do learning.
+*   It also helps to reuse previous data.
+]
+
+<img src="imgs/img_rl_dqn_experience_replay_1.png" style="position: absolute; top: 60%; left: 15%;">
+<img src="imgs/img_rl_dqn_experience_replay_2.png" style="position: absolute; top: 80%; left: 30%;">
+
+---
+
+## Target Networks
+
+.slide_text_content[
+*   If we just plug the TD target computed with the most recent weights of the
+    network, we would get bad behaviour.
+*   It's like following a moving target. The follower is the network, and the target
+    is fully made by the network as well.
+*   In theory we shouldn't replace this TD target, because it depends of the weights
+    of the network, and in the derivation we assumed that it didn't.
+]
+
+<img src="imgs/img_rl_fixed_targets_motivation.png" style="position: absolute; top: 60%; left: 30%;">
+
+---
+
+## Target Networks
+
+.slide_text_content[
+*   To solve this issue, the authors proposed to have two sets of weights, one
+    being updated every time, and the other is a copy used to compute the targets (**Target Network**).
+*   This target network keeps fixed while updating the weights of the first network,
+    and then the weights of this target network are replaced by the updated weights
+    of the first network.
+]
+
+<img src="imgs/img_rl_dqn_target_networks.png" style="position: absolute; top: 60%; left: 15%; width: 70%; height: 20%">
+
+---
+
+class: center, middle, inverse
+# Resources
+
+---
+
+## Reinforcemenet Learning: An Introduction
+
+.slide_text_content[
+*   Good book for the core of RL.
+*   link: http://incompleteideas.net/book/the-book-2nd.html
+]
+
+<img src="imgs/img_rl_resource_sutton_barto_book.png" style="position: absolute; top: 40%; left: 35%; width: 30%; height: 50%">
+
+---
+
+## Berkeley's cs294 DeepRL course
+
+.slide_text_content[
+*   link: http://rail.eecs.berkeley.edu/deeprlcourse/
+]
+
+<img src="imgs/img_rl_resource_cs294_berkeley.png" style="position: absolute; top: 35%; left: 15%; width: 70%; height: 55%">
+
+---
+
+## DeepRL bootcamp
+
+.slide_text_content[
+*   link: http://rail.eecs.berkeley.edu/deeprlcourse/
+]
+
+<img src="imgs/img_rl_resource_drl_bootcamp.png" style="position: absolute; top: 35%; left: 15%; width: 70%; height: 55%">
+
+---
+
+## Deepmind's DeepRL course
+
+.slide_text_content[
+*   link: https://www.youtube.com/playlist?list=PLqYmG7hTraZDNJre23vqCGIVpfZ_K2RZs
+]
+
+<img src="imgs/img_rl_deepmind_drl_course.png" style="position: absolute; top: 40%; left: 15%; width: 60%; height: 45%">
+
+---
+
+class: center, middle, inverse
+# Thanks
 
 <!--
 
@@ -1571,5 +1805,37 @@ L(w) = ( \hat Q - Q_{w} )^{2} = ( \hat Q - x^T w )^{2}\\
 \rightarrow \nabla_{w}L = -2( \hat Q - x^T w )x\\
 w := w - \frac{1}{2}\alpha \nabla_{w}L \\
 \rightarrow w := w + \alpha ( \hat Q - x^T w )x
+
+\\
+\cdot \pi = \pi_{\theta}(a|s) \\
+\cdot J(\theta) = \mathbb{E}_{\pi_{\theta}} \lbrace G_{t} \rbrace \\
+\cdot \theta = \arg \min_{\theta} J(\theta)
+
+\\
+J(\theta) = \mathbb{E} \lbrace G(\tau) \rbrace\\
+J(\theta) = \sum_{\tau} p(\tau;\theta)G(\tau)\\
+\\
+\nabla_{\theta} J = \nabla_{\theta} \sum_{\tau} p(\tau;\theta) G(\tau) \\
+\nabla_{\theta} J = \sum_{\tau} \nabla_{\theta} p(\tau;\theta) G(\tau) \\
+\nabla_{\theta} J = \sum_{\tau}p(\tau;\theta) \frac{\nabla_{\theta}p(\tau;\theta)}{p(\tau;\theta)} G(\tau) \\
+\nabla_{\theta} J = \sum_{\tau}p(\tau;\theta) \nabla_{\theta} \log p(\tau;\theta) G(\tau) \\
+\rightarrow \nabla_{\theta} J \approx \frac{1}{m}\sum_{i=1}^{m} \nabla \log p(\tau^{i};\theta) G(\tau^{i})
+
+\\
+\nabla_{\theta} \log p(\tau;\theta) = \nabla_{\theta} \log \left ( p(s_{0}) \pi(a_{0}|s_{0}) p(s_{1}|s_{0},a_{0}) \hdots \right ) \\
+\nabla_{\theta} \log p(\tau;\theta) = \nabla_{\theta} \sum_{t=0}^{T} \log p(s_{t+1}|s_{t},a_{t}) + \log \pi_{\theta}(a_{t}|s_{t}) \\
+\rightarrow \nabla_{\theta} \log p(\tau;\theta) = \sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}(a_{t}|s_{t})
+
+\\
+\nabla_{\theta} J \approx \frac{1}{m}\sum_{i=1}^{m} \nabla \log p(\tau^{i};\theta) G(\tau^{i}) \\
+\rightarrow \nabla_{\theta}J \approx \frac{1}{m}\sum_{i=1}^{m} \left [ \sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}(a_{t}|s_{t}) \right ] G_{t}
+
+\nabla_{\theta} J \approx \frac{1}{m}\sum_{i=1}^{m} \nabla \log p(\tau^{i};\theta) G(\tau^{i})
+
+\nabla_{\theta} J \approx \frac{1}{m}\sum_{i=1}^{m} \nabla \log p(\tau^{i};\theta) ( G(\tau^{i}) - b )
+
+\frac{1}{m}\sum_{i=1}^{m} \left [ \sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}(a_{t}|s_{t}) \right ] ( G(\tau^{i}) - b ) \\
+\frac{1}{m}\sum_{i=1}^{m} \left [ \sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}(a_{t}|s_{t}) \right ] ( \sum_{k=0}^{T}\gamma^{k}R_{k+1} - b )\\
+\rightarrow \frac{1}{m}\sum_{i=1}^{m} \left [ \sum_{t=0}^{T} \nabla_{\theta} \log \pi_{\theta}(a_{t}|s_{t}) \right ] ( \sum_{k=t}^{T}\gamma^{k}R_{k+1} - b )\\
 
 -->
