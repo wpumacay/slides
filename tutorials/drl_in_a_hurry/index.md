@@ -884,24 +884,6 @@ V_{\pi}(s) = \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) ( r + \gamma V_{\pi}(s') 
 *   For the \\( Q \\) value function we would get:
 ]
 
-<!--
-
-Q_{\pi}(s,a) = \sum_{s',r} p(s',r|s,a)( r + \gamma \sum_{a'} \pi(a'|s') Q_{\pi}(s',a') )
-V^{*}(s) = \max_{a} \sum_{s',r} p(s',r|s,a) ( r + \gamma V^{*}(s') )
-
-\\
-\pi(s_{t}) = \arg \max_{a} \sum_{s_{t},r} p(s',r|s_{t},a)( r + \gamma V^{*}(s'))\\
-\pi(s_{t}) = \arg \max_{a} Q^{*}(s_{t},a)
-
-\\
-V^{k+1}_{\pi} (s) = \sum_{a}\pi(a|s)\sum_{s',r}p(s',r|s,a)(r + \gamma V^{k}_{\pi}(s'))\\
-\\
-Q^{k+1}_{\pi} (s,a) = \sum_{s',r}p(s',r|s,a)( r + \sum_{a'} \pi(a'|s')Q_{\pi}(s',a'))
-
-V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}_{k}(s'))
-
--->
-
 ---
 
 ## A zoo of Bellman Equations
@@ -942,9 +924,9 @@ V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}
 ## Computing V and Q
 
 .slide_text_content[
-*   The first one can be solved by an iterative process. The solutions must be fixed points 
-    of the corresponding Bellman Equations, so we can start from an estimate of the functions
-    and iteratively improve our estimates until we converge to the fix point.
+*   We can compute *V* and *Q* by using an iterative process. The solutions must be 
+    fixed points of the corresponding Bellman Equations, so we can start from an estimate 
+    of the functions and iteratively improve our estimates until we converge to the fix point.
 ]
 
 ---
@@ -952,9 +934,9 @@ V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}
 ## Computing V and Q
 
 .slide_text_content[
-*   The first one can be solved by an iterative process. The solutions must be fixed points 
-    of the corresponding Bellman Equations, so we can start from an estimate of the functions
-    and iteratively improve our estimates until we converge to the fix point.
+*   We can compute *V* and *Q* by using an iterative process. The solutions must be 
+    fixed points of the corresponding Bellman Equations, so we can start from an estimate 
+    of the functions and iteratively improve our estimates until we converge to the fix point.
 ]
 
 <img src="imgs/img_rl_policy_evaluation_vfunction.png" style="position: absolute; top: 55%; left: 15%; width: 70%; height: 15%">
@@ -964,9 +946,9 @@ V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}
 ## Computing V and Q
 
 .slide_text_content[
-*   The first one can be solved by an iterative process. The solutions must be fixed points 
-    of the corresponding Bellman Equations, so we can start from an estimate of the functions
-    and iteratively improve our estimates until we converge to the fix point.
+*   We can compute *V* and *Q* by using an iterative process. The solutions must be 
+    fixed points of the corresponding Bellman Equations, so we can start from an estimate 
+    of the functions and iteratively improve our estimates until we converge to the fix point.
 *   This can be thought as applying an operator iteratively (Bellman Operator). Some
     theoretical results tell us that the Bellman Operator is a **Contraction Mapping**, 
     which means that the error to the true fixed point must **"contract"** every time we apply the operator.
@@ -977,9 +959,9 @@ V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}
 ## Computing V and Q
 
 .slide_text_content[
-*   The first one can be solved by an iterative process. The solutions must be fixed points 
-    of the corresponding Bellman Equations, so we can start from an estimate of the functions
-    and iteratively improve our estimates until we converge to the fix point.
+*   We can compute *V* and *Q* by using an iterative process. The solutions must be 
+    fixed points of the corresponding Bellman Equations, so we can start from an estimate 
+    of the functions and iteratively improve our estimates until we converge to the fix point.
 *   This can be thought as applying an operator iteratively (Bellman Operator). Some
     theoretical results tell us that the Bellman Operator is a **Contraction Mapping**, 
     which means that the error to the true fixed point must **"contract"** every time we apply the operator.
@@ -990,11 +972,54 @@ V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}
 
 ---
 
+## Iterative Policy Evaluation
+
+<img src="imgs/img_rl_iterative_policy_evaluation.png" style="position: absolute; top: 30%; left: 5%; width: 90%; height: 60%">
+
+---
+
+## What about optimality?
+
+.slide_text_content[
+*   To compute the **optimal** *V* and *Q* functions we could just apply the previous
+    results (Bellman equations as operators), which showed that the iterative procedures
+    converge to the appropiate fixed points.
+]
+
+---
+
+## What about optimality?
+
+.slide_text_content[
+*   To compute the **optimal** *V* and *Q* functions we could just apply the previous
+    results (Bellman equations as operators), which showed that the iterative procedures
+    converge to the appropiate fixed points.
+*   If we apply this to the Bellman Optimality Equation to solve for \\( V^* \\) we get
+    the following iterative procedure:
+]
+
+---
+
+## What about optimality?
+
+.slide_text_content[
+*   To compute the **optimal** *V* and *Q* functions we could just apply the previous
+    results (Bellman equations as operators), which showed that the iterative procedures
+    converge to the appropiate fixed points.
+*   If we apply this to the Bellman Optimality Equation to solve for \\( V^* \\) we get
+    the following iterative procedure:
+]
+
+<img src="imgs/img_rl_value_iteration_update.png" style="position: absolute; top: 60%; left: 10%;">
+
+---
+
 ## Recovering the policy
 
 .slide_text_content[
-*   The second one can be solved by taking the greedy (best) action respect to these functions.
-    (these functions give us an intuition of what to actions to follow, so just follow them).
+*   We can then recover the policy from *V* or *Q* by taking the greedy (best) action 
+    respect to these functions. Recall that these functions give us an intuition of 
+    what actions to follow, so just follow them.
 ]
 
 ---
@@ -1002,22 +1027,278 @@ V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}
 ## Recovering the policy
 
 .slide_text_content[
-*   The second one can be solved by taking the greedy (best) action respect to these functions.
-    (these functions give us an intuition of what to actions to follow, so just follow them).
+*   We can then recover the policy from *V* or *Q* by taking the greedy (best) action 
+    respect to these functions. Recall that these functions give us an intuition of 
+    what actions to follow, so just follow them.
 ]
 
 <img src="imgs/img_rl_policy_from_v_q_functions.png" style="position: absolute; top: 45%; left: 15%; width: 70%; height: 25%">
 
+---
+
+## Value Iteration
+
+<img src="imgs/img_rl_value_iteration.png" style="position: absolute; top: 30%; left: 5%; width: 90%; height: 60%">
 
 ---
 
-class: center, middle, inverse
+## Generalizing: Evaluation + Improvement
+
+.slide_text_content[
+*   Another way of solving for the optimal *V* and *Q* is to **Evaluate and Improve**
+    repeatedly.
+]
+
+---
+
+## Generalizing: Evaluation + Improvement
+
+.slide_text_content[
+*   Another way of solving for the optimal *V* and *Q* is to **Evaluate and Improve**
+    repeatedly.
+*   We first **evaluate** our policy (we could start with a random one) and compute
+    \\( V^\pi\\) via *Iterative Policy Evaluation*.
+]
+
+---
+
+## Generalizing: Evaluation + Improvement
+
+.slide_text_content[
+*   Another way of solving for the optimal *V* and *Q* is to **Evaluate and Improve**
+    repeatedly.
+*   We first **evaluate** our policy (we could start with a random one) and compute
+    \\( V^\pi\\) via *Iterative Policy Evaluation*.
+*   The we can **improve** the policy by recovering the greedy policy over our
+    new evaluation of \\( V^\pi \\).
+]
+
+---
+
+## Generalizing: Evaluation + Improvement
+
+.slide_text_content[
+*   Another way of solving for the optimal *V* and *Q* is to **Evaluate and Improve**
+    repeatedly.
+*   We first **evaluate** our policy (we could start with a random one) and compute
+    \\( V^\pi\\) via *Iterative Policy Evaluation*.
+*   The we can **improve** the policy by recovering the greedy policy over our
+    new evaluation of \\( V^\pi \\).
+]
+
+<img src="imgs/img_rl_general_policy_iteration.png" style="position: absolute; top: 55%; left: 40%; width: 25%; height: 45%">
+
+---
+
+## General Policy Iteration
+
+<img src="imgs/img_rl_policy_iteration.png" style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+class: center, middle
 # Model-free prediction using MC and TD
 
 ---
 
-class: center, middle, inverse
+## Model-free prediction
+
+.slide_text_content[
+*   The methods based on DP can solve MDPs given that we have access to the model
+    of the environment.
+*   Unfortunately we generally don't have access to a model of the environment.
+*   In these situations we can make use of **model-free** methods, that make the
+    agent learn *V* and *Q* from experience.
+*   In this section we will cover the **prediction** case, which consists of the
+    evaluation part of the solution described in the previous section (policy evaluation)
+]
+
+---
+
+## Monte Carlo (MC) Prediction
+
+.slide_text_content[
+*   Recall that we want to compute \\( V^\pi = \mathbb{E}_\pi \lbrace G_t \rbrace \\).
+*   What if we could just approximate \\( V^\pi \\) by samples of the \\( G_t \\).
+*   Then, by the **law of large numbers** we would get (in the limit) the exact
+    value of \\( V^\pi \\).
+*   This can be described by the following update rules for both \\( V^\pi \\) and \\( Q^\pi \\)
+]
+
+<img src="imgs/img_rl_montecarlo_prediction_approx.png" style="position: absolute; top: 55%; left: 20%;">
+
+---
+
+## Monte Carlo (MC) Prediction
+
+.slide_text_content[
+*   To make this updates, we need to have the full return from episodes.
+*   This makes MC prediction a bit restricted, because we can only use it in
+    tasks that terminate.
+*   Also, we can only make the updates once we have the sampled return, which
+    is at the end of the episode.
+*   This process can be represented with the following backup diagram.
+]
+
+<img src="imgs/img_rl_montecarlo_backup_diagram.png" style="position: absolute; top: 52.5%; left: 40%; width: 10%; height: 45%">
+
+---
+
+## Monte Carlo (MC) Prediction
+
+<img src="imgs/img_rl_montecarlo_prediction_first_visit.png" style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+## MC variants : visits
+
+---
+
+## MC variants : incremental updates
+
+---
+
+## MC variants : constant-alpha updates
+
+---
+
+## Temporal Difference (TD) learning
+
+.slide_text_content[
+*   Instead of waiting till the end of an episode (if it ends), we could just
+    update our estimates of *V* and *Q* by using previous information.
+*   Recall the *constant-alpha MC update*: \\( V(s) := V(s) + \alpha ( G_t - V(s) ) \\)
+*   Our **target** \\( G_t \\) was an unbias estimate from our expectaion (it was an actual sample).
+*   We could replaced this by the target \\( r + \gamma V(s') \\), called **TD target**.
+*   The **TD update** would then be: \\( V(s) := V(s) + \alpha ( (r + \gamma V(s')) - V(s) ) \\)
+*   This update can be represented by the following backup diagram.
+]
+
+<img src="imgs/img_rl_td_backup_diagram.png" style="position: absolute; top: 62.5%; left: 45%; width: 10%; height: 35%">
+
+---
+
+## Temporal Difference (TD) learning
+
+<img src="imgs/img_rl_td_prediction.png" style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+class: center, middle
 # Model-free control using MC, SARSA and Q-learning
+
+---
+
+## Model-free control
+
+.slide_text_content[
+*   Model-free control stands for learning the optimal policy without knowledge
+    of a model of the environment.
+*   We already saw how to make **model-free prediction** by using MC and TD methods.
+*   Can't we just use the same idea of **evaluation + improvement** from the DP methods
+    and call it a day?
+*   It turns out that this situation is a bit more complicated than the model-base case.
+*   This situation gives us a common problem in RL: **The Exploration vs Exploitation Dilemma**.
+]
+
+---
+
+## Exploration vs Exploitation
+
+.slide_text_content[
+*   Recall that the experience we get from the environment is not **i.i.d**. The actions
+    we take influence in what we see from the search space (the distribution of the data we get).
+]
+
+---
+
+## Exploration vs Exploitation
+
+.slide_text_content[
+*   Recall that the experience we get from the environment is not **i.i.d**. The actions
+    we take influence in what we see from the search space (the distribution of the data we get).
+]
+
+<img src="imgs/img_rl_exploration_exploitation_1.png" style="position: absolute; top: 45%; left: 20%; width: 60%; height: 50%">
+
+---
+
+## Exploration vs Exploitation
+
+.slide_text_content[
+*   Recall that the experience we get from the environment is not **i.i.d**. The actions
+    we take influence in what we see from the search space (the distribution of the data we get).
+*   If we enforce to improve by using a greedy policy, we then may fall into various issues
+    and might converge to suboptimal and bad solutions.
+]
+
+---
+
+## Exploration vs Exploitation
+
+.slide_text_content[
+*   Recall that the experience we get from the environment is not **i.i.d**. The actions
+    we take influence in what we see from the search space (the distribution of the data we get).
+*   If we enforce to improve by using a greedy policy, we then may fall into various issues
+    and might converge to suboptimal and bad solutions.
+]
+
+<img src="imgs/img_rl_exploration_exploitation_2.png" style="position: absolute; top: 50%; left: 20%; width: 60%; height: 45%">
+
+---
+
+## Exploration vs Exploitation
+
+.slide_text_content[
+*   Recall that the experience we get from the environment is not **i.i.d**. The actions
+    we take influence in what we see from the search space (the distribution of the data we get).
+*   If we enforce to improve by using a greedy policy, we then may fall into various issues
+    and might converge to suboptimal and bad solutions.
+*   So we have to ensure that we are exploring enough, while also exploiting the knowledge we have.
+]
+
+---
+
+## Epsilon-Greedy
+
+.slide_text_content[
+*   Ensure some small random exploration in every step.
+*   We then will explore randomly with probability \\( \epsilon \\), and exploit
+    our current knowledge by being greedy with \\( 1 - \epsilon \\) probability.
+]
+
+<img src="imgs/img_rl_eps_greedy_exploration.png" style="position: absolute; top: 50%; left: 10%; width: 80%; height: 25%">
+
+---
+
+## Greedy in the Limit with Infinite Exploration
+
+.slide_text_content[
+*   We can ensure that we converge to the optimal policy by using the **GLIE** approach.
+*   We do some random exploration given by \\( \epsilon_t \\) and the \\( \epsilon - greedy \\)
+    policy.
+*   And ensure this exploration factor \\( \epsilon_t \\) decays to 0 in the limit.
+]
+
+<img src="imgs/img_rl_glie.png" style="position: absolute; top: 60%; left: 40%;">
+
+---
+
+## Monte Carlo (MC) Control
+
+<img src="imgs/img_rl_montecarlo_control_1.png" style="position: absolute; top: 30%; left: 10%; width: 80%; height: 65%">
+
+---
+
+## SARSA(0)
+
+<img src="imgs/img_rl_sarsa.png" style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+## SARSA-MAX (Q-learning)
+
+<img src="imgs/img_rl_sarsamax.png" style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
 
 ---
 
@@ -1031,15 +1312,18 @@ class: center, middle, inverse
 
 ---
 
-## Vanilla Policy Gradients
+class: center, middle
+# Vanilla Policy Gradients
 
 ---
 
-## Improving PG
+class: center, middle
+# Improving PG
 
 ---
 
-## Actor-Critic
+class: center, middle
+# Actor-Critic
 
 ---
 
@@ -1059,3 +1343,36 @@ class: center, middle, inverse
 ## Case study: PPO
 
 ---
+
+<!--
+
+Q_{\pi}(s,a) = \sum_{s',r} p(s',r|s,a)( r + \gamma \sum_{a'} \pi(a'|s') Q_{\pi}(s',a') )
+V^{*}(s) = \max_{a} \sum_{s',r} p(s',r|s,a) ( r + \gamma V^{*}(s') )
+
+\\
+\pi^{*}(s) = \arg \max_{a} \sum_{s,r} p(s',r|s,a)( r + \gamma V^{*}(s'))\\
+\pi^{*}(s) = \arg \max_{a} Q^{*}(s,a)
+
+\\
+V^{k+1}_{\pi} (s) = \sum_{a}\pi(a|s)\sum_{s',r}p(s',r|s,a)(r + \gamma V^{k}_{\pi}(s'))\\
+\\
+Q^{k+1}_{\pi} (s,a) = \sum_{s',r}p(s',r|s,a)( r + \sum_{a'} \pi(a'|s')Q_{\pi}(s',a'))
+
+V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}_{k}(s'))
+
+\Vert V^{k+1} - V^{\pi} \Vert \leq \beta \Vert V^{k} - V^{\pi} \Vert
+
+V^{*}_{k+1} (s) = \max_{a} \sum_{s',r} p(s',r|s,a)( r + \gamma V^{*}_{k}(s'))
+
+\\
+V^{\pi}(s) = \mathbb{E}_{\pi} \lbrace G_{t} \rbrace \approx \frac{\sum_{k}^{N(s)} G^{(k)}_{t}}{N(s)}\\
+Q^{\pi}(s,a) = \mathbb{E}_{\pi}\lbrace G_{t} \rbrace \approx \frac{\sum_{k}^{N(s,a)} G^{(k)}_{t}}{N(s,a)}
+
+\pi(a|s) = 
+\begin{cases} 
+    1 - \epsilon + \frac{\epsilon}{n(A)} & ,\textit{if } a = \arg \max_{a} Q(s,a) \\
+    \frac{\epsilon}{n(A)} & ,\textit{otherwise}
+\end{cases}
+
+
+-->
