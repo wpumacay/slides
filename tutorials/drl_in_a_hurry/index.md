@@ -1307,8 +1307,190 @@ class: center, middle, inverse
 
 ---
 
+## Scaling to more complex problems
+
+.slide_text_content[
+*   So far we have work with small and finite MDPs. The state and actions spaces
+    studied were finite, and we were able to store \\( V \\) and \\( Q \\) in tables.
+*   But, most of the problems we are interested are represented by big MDPs with
+    lots of states, and it can even be continuous in nature (both in states and actions).
+*   To compensate for this we make use of **Function Aproximators** to generalize
+    across our state space.
+*   We then use some similar machinery to the previously studied, but now instead
+    of updating each entry in a table with a new estimate we make changes to a 
+    parametrized function to push it towards following a new estimate.
+]
+
+---
+
+## Scaling to more complex problems
+
+<img src="imgs/img_rl_tabular_to_function_approximation.png" style="position: absolute; top: 25%; left: 10%; width: 80%; height: 70%">
+<img src="imgs/img_background_white.png" style="position: absolute; top: 45%; left: 10%; width: 80%; height: 50%">
+
+---
+
+## Scaling to more complex problems
+
+<img src="imgs/img_rl_tabular_to_function_approximation.png" style="position: absolute; top: 25%; left: 10%; width: 80%; height: 70%">
+
+---
+
+## MC prediction with function approximation
+
+<img src="imgs/img_rl_mc_gradients_fapprox.png" style="position: absolute; top: 30%; left: 10%; width: 85%; height: 50%">
+
+---
+
+## TD prediction with function approximation
+
+<img src="imgs/img_rl_td_gradients_fapprox.png" style="position: absolute; top: 30%; left: 10%; width: 80%; height: 55%">
+
+---
+
+## What function approximator to use?
+
+.slide_text_content[
+*   There are various options for function approximators. Some could be :
+    *   Linear models
+    *   Radial Basis Functions
+    *   Decision trees
+    *   Fourier basis
+    *   Nearest Neighbours
+    *   Neural Networks
+    *   ...
+*   Unfortunately, there are not that many theoretical guarantees for convergence
+    (except for linear cases), unlike the tabular case.
+*   Still, in practice these methods work given some enhancements.
+]
+
+---
+
+## Example: Linear models
+
+.slide_text_content[
+*   Let's analyze the case of linear models as function approximators.
+*   We make use of **features**: \\( \lbrace x_i(s) \rbrace \\).
+*   These features come from mappings from the state space to a smaller feature space,
+    where our linear model lives: \\( \vert S \vert \rightarrow R^n \\)
+*   We then combine these features using a linear model parametrized by the
+    set of weights \\( w \in R^n \\) to obtain the approximation of the function
+    we want: \\( Q_\theta (s,a) = x^T w \\)
+*   We can then just apply gradient descent to the MSE objective :
+    \\( L(\theta) = (\hat Q - Q_\theta)^2\\)
+]
+
+---
+
+## Example: Linear models
+
+<img src="imgs/img_rl_fapprox_gradients_linear_model_derivation.png" style="position: absolute; top: 35%; left: 10%; width: 70%; height: 50%">
+
+---
+
+## TD-Gammon
+
+.slide_text_content[
+*   Tesauro [1995], used RL and function approximation to make an agent that could
+    play Backgammon.
+*   He made use of Neural Networks as function approximators, and a variant of *TD*
+    learning to optimize for the weights of the model.
+]
+
+<img src="imgs/img_rl_backgammon.png" style="position: absolute; top: 45%; left: 5%; width: 45%; height: 40%">
+<img src="imgs/img_rl_tdgammon.png" style="position: absolute; top: 45%; left: 50%; width: 45%; height: 40%">
+
+---
+
 class: center, middle, inverse
 # Policy based methods
+
+---
+
+## Policy based methods
+
+.slide_text_content[
+*   So far, the methods we have studied try to solve for some auxiliary functions,
+    namely \\( V\\) and \\( Q \\).
+*   We have studied tabular methods for small finite MDPs, and then scaled up using
+    function approximators.
+*   Basically we solve an indirect objective and then extracted the greedy policy.
+*   But, can't we solve for the policy directly?
+*   With function approximation we can: Just **parametrize** the policy and update the
+    parameters following an objective.
+]
+
+<img src="imgs/img_rl_policy_optimization_setup.png" style="position: absolute; top: 65%; left: 35%;">
+
+---
+
+## Wait, isn't that Supervised Learning?
+
+.slide_text_content[
+*   To an certain degree it's similar. We have transformed the RL problem into a 
+    supervised approach, but we are not still in a fully supervised approach.
+*   The objective is formulated using an expectation of some random variable that
+    we have not control over.
+*   Also, recall that the data we see depends on our policy, so it's not quite 
+    supervised learning. We still have the non i.i.d. issue.
+*   Still, we will see that this approach will work pretty well (some of the state
+    of the art algorithms use variants of Policy Based methods).
+]
+
+---
+
+## Policy based vs Value based methods
+
+<img src="imgs/img_rl_policybased_vs_valuebased.png" style="position: absolute; top: 30%; left: 10%; width: 75%; height: 50%">
+
+---
+
+## \*Imitation Learning
+
+.slide_text_content[
+*   As a side note, let's see imitation learning.
+*   In this setup we have some knowledge from experts of the actions that we
+    should take in some given states: **a Dataset**.
+*   Then, we could just parametrize a policy and optimize the parameters to
+    approach the given dataset.
+]
+
+---
+
+## \*Imitation Learning: Behaviour cloning
+
+<img src="imgs/img_rl_behaviour_cloning.png" style="position: absolute; top: 30%; left: 10%; width: 75%; height: 50%">
+
+
+---
+
+## \*Imitation Learning: Behaviour cloning
+
+<iframe width="80%" height="50%" style="position: absolute; top: 30%; left: 10%" src="https://www.youtube.com/embed/qhUvQiKec2U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
+## \*Imitation Learning: Behaviour cloning
+
+.slide_text_content[
+*   Why does it work? (In theory it should drift and work badly).
+*   Do some nice tricks account for potential issues.
+]
+
+<img src="imgs/img_rl_nvidia_imitation.png" style="position: absolute; top: 40%; left: 20%; width: 65%; height: 50%">
+
+---
+
+## \*Imitation Learning: Dataset Aggregation
+
+.slide_text_content[
+*   To avoid drift, we could grow our dataset with new data that we see.
+*   Then ask a human to label it, and add this new data to the dataset.
+*   In the limit we are using data from the distribution induced by the 
+    policy (not just the initial dataset).
+]
+
+<img src="imgs/img_rl_dagger.png" style="position: absolute; top: 50%; left: 25%; width: 50%; height: 40%">
 
 ---
 
@@ -1374,5 +1556,20 @@ Q^{\pi}(s,a) = \mathbb{E}_{\pi}\lbrace G_{t} \rbrace \approx \frac{\sum_{k}^{N(s
     \frac{\epsilon}{n(A)} & ,\textit{otherwise}
 \end{cases}
 
+\lim_{t \rightarrow \infty} \epsilon_{t} = 0
+
+Q(s,a) := Q(s,a) + \alpha ( R_{t+1} + \gamma \max_{a'} Q(s',a') - Q(s',a') )
+
+\\
+L(\theta) = ( \hat Q(s,a) - Q_{\theta}(s,a) )^{2} \\
+\theta := \theta - \frac{1}{2} \alpha \nabla_{\theta} L(\theta) \\
+\theta := \theta + \alpha ( \hat Q(s,a) - Q_{\theta}(s,a) ) \nabla_{\theta}Q_{\theta}(s,a)
+
+\\
+L(w) = ( \hat Q - Q_{w} )^{2} = ( \hat Q - x^T w )^{2}\\
+\rightarrow \nabla_{w}L = 2( \hat Q - x^T w )( -x )\\
+\rightarrow \nabla_{w}L = -2( \hat Q - x^T w )x\\
+w := w - \frac{1}{2}\alpha \nabla_{w}L \\
+\rightarrow w := w + \alpha ( \hat Q - x^T w )x
 
 -->
