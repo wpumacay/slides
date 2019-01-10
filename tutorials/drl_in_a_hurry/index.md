@@ -762,7 +762,7 @@ V_{\pi}(s) = \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) ( r + \gamma V_{\pi}(s') 
     into the future. If we do so, we end up with the **Bellman Expectation Equation**
 ]
 
-<img src="imgs/img_rl_bellman_expectation_eq.png" style="position: absolute; top: 57.5%; left: 25%">
+<img src="imgs/img_rl_vvalues_bellman_expectation_eq.png" style="position: absolute; top: 57.5%; left: 25%">
 
 ---
 
@@ -889,6 +889,17 @@ V_{\pi}(s) = \sum_{a} \pi(a|s) \sum_{s',r} p(s',r|s,a) ( r + \gamma V_{\pi}(s') 
 Q_{\pi}(s,a) = \sum_{s',r} p(s',r|s,a)( r + \gamma \sum_{a'} \pi(a'|s') Q_{\pi}(s',a') )
 V^{*}(s) = \max_{a} \sum_{s',r} p(s',r|s,a) ( r + \gamma V^{*}(s') )
 
+\\
+\pi(s_{t}) = \arg \max_{a} \sum_{s_{t},r} p(s',r|s_{t},a)( r + \gamma V^{*}(s'))\\
+\pi(s_{t}) = \arg \max_{a} Q^{*}(s_{t},a)
+
+\\
+V^{k+1}_{\pi} (s) = \sum_{a}\pi(a|s)\sum_{s',r}p(s',r|s,a)(r + \gamma V^{k}_{\pi}(s'))\\
+\\
+Q^{k+1}_{\pi} (s,a) = \sum_{s',r}p(s',r|s,a)( r + \sum_{a'} \pi(a'|s')Q_{\pi}(s',a'))
+
+V_{k+1}^{\pi} (s) = \sum_{a} \pi(a|s) \sum_{s',r}p(s',r|s,a)( r + \gamma V^{\pi}_{k}(s'))
+
 -->
 
 ---
@@ -904,6 +915,99 @@ V^{*}(s) = \max_{a} \sum_{s',r} p(s',r|s,a) ( r + \gamma V^{*}(s') )
 
 <img src="imgs/img_rl_qvalues_bellman_backup_diagram_opt.png" style="position: absolute; top: 45%; left: 30%; width: 50%; height: 40%">
 <img src="imgs/img_rl_qvalues_bellman_optimality_eq.png" style="position: absolute; top: 85%; left: 17.5%; width: 70%; height: 10%">
+
+---
+
+## But, does that solve my problem???
+
+.slide_text_content[
+*   The Bellman Equations (in all their flavors) express a condition that must
+    be satisfied for the candidate solutions, namely the \\(V\\) and \\(Q\\) value functions.
+]
+
+---
+
+## But, does that solve my problem???
+
+.slide_text_content[
+*   The Bellman Equations (in all their flavors) express a condition that must
+    be satisfied for the candidate solutions, namely the \\(V\\) and \\(Q\\) value functions.
+*   So, there are two questions that arise :
+    *   How do we compute these functions?
+    *   How do we obtain a policy from these functions?
+]
+
+---
+
+## Computing V and Q
+
+.slide_text_content[
+*   The first one can be solved by an iterative process. The solutions must be fixed points 
+    of the corresponding Bellman Equations, so we can start from an estimate of the functions
+    and iteratively improve our estimates until we converge to the fix point.
+]
+
+---
+
+## Computing V and Q
+
+.slide_text_content[
+*   The first one can be solved by an iterative process. The solutions must be fixed points 
+    of the corresponding Bellman Equations, so we can start from an estimate of the functions
+    and iteratively improve our estimates until we converge to the fix point.
+]
+
+<img src="imgs/img_rl_policy_evaluation_vfunction.png" style="position: absolute; top: 55%; left: 15%; width: 70%; height: 15%">
+
+---
+
+## Computing V and Q
+
+.slide_text_content[
+*   The first one can be solved by an iterative process. The solutions must be fixed points 
+    of the corresponding Bellman Equations, so we can start from an estimate of the functions
+    and iteratively improve our estimates until we converge to the fix point.
+*   This can be thought as applying an operator iteratively (Bellman Operator). Some
+    theoretical results tell us that the Bellman Operator is a **Contraction Mapping**, 
+    which means that the error to the true fixed point must **"contract"** every time we apply the operator.
+]
+
+---
+
+## Computing V and Q
+
+.slide_text_content[
+*   The first one can be solved by an iterative process. The solutions must be fixed points 
+    of the corresponding Bellman Equations, so we can start from an estimate of the functions
+    and iteratively improve our estimates until we converge to the fix point.
+*   This can be thought as applying an operator iteratively (Bellman Operator). Some
+    theoretical results tell us that the Bellman Operator is a **Contraction Mapping**, 
+    which means that the error to the true fixed point must **"contract"** every time we apply the operator.
+]
+
+<img src="imgs/img_rl_bellman_operator.png" style="position: absolute; top: 65%; left: 35%;">
+<img src="imgs/img_rl_policy_evaluation_convergence.png" style="position: absolute; top: 75%; left: 20%;">
+
+---
+
+## Recovering the policy
+
+.slide_text_content[
+*   The second one can be solved by taking the greedy (best) action respect to these functions.
+    (these functions give us an intuition of what to actions to follow, so just follow them).
+]
+
+---
+
+## Recovering the policy
+
+.slide_text_content[
+*   The second one can be solved by taking the greedy (best) action respect to these functions.
+    (these functions give us an intuition of what to actions to follow, so just follow them).
+]
+
+<img src="imgs/img_rl_policy_from_v_q_functions.png" style="position: absolute; top: 45%; left: 15%; width: 70%; height: 25%">
+
 
 ---
 
