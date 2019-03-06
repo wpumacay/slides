@@ -47,7 +47,40 @@ class: center, middle, inverse
 
 ## DeepRL benchmarks for locomotion
 
+--
+
+*   Current locomotion benchmarks allow to train agents in simulated environments
+    based on popular physics engines.
+
+--
+
+*   However, these benchmarks do not offer more diverse and complex environments,
+    and mostly consist of relatively simple environments.
+
+--
+
+*   Therefore, we focus on making the required infrastructure and support to
+    allow researchers to build diverse and complex environments.
+
+--
+
+*   To do so, we propose to build a full locomotion framework from scratch, using
+    only widely used physics engines as core dependencies.
+
+--
+
+*   Also, we focus on evaluating current state-of-the-art (SOTA) DeepRL algorithms
+    in a new benchmark consisting of tasks built using the proposed framework.
+
 ---
+
+## DeepRL benchmarks for locomotion
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_1/imgs/img_ch1_environments_from_to.png" 
+     style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
 class: center, middle, inverse
 # Background
 
@@ -118,21 +151,78 @@ class: center, middle, inverse
 
 ## DeepRL
 
-*   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam faucibus nisi 
-    eget hendrerit auctor. Etiam vitae velit sit amet nibh luctus tincidunt.
+--
 
-<img src="imgs/img_background_deeprl_policy_optimization.png" style = "position: absolute; top: 50%; left: 25%; width: 50%; height: 40%">
+*   Deep models (whose parameters we represent by \\( \theta \\)) can be used to 
+    parameterize various components of the RL problem.
+
+--
+
+*   The State-Value and Action-Value functions: 
+    *   \\( V_\theta (s) \\)
+    *   \\( Q_\theta (s,a) \\)
+
+--
+
+*   The Policy :
+    *   Deterministic: \\( a = \pi_{\theta}(s) \\)
+    *   Stochastic: \\( a \sim \pi_{\theta}(.|s) \\)
+
+--
+
+*   The Model:
+    *   \\( s' = f_\theta (s, a) \\)
+
+---
+
+## DeepRL
+
+*   Deep models (whose parameters we represent by \\( \theta \\)) can be used to 
+    parameterize various components of the RL problem.
+
+*   The baselines we will focus on deal mainly with parameterized policies
+
+--
+
+<img src="imgs/img_background_deeprl_parameterized_policy.png" style = "position: absolute; top: 50%; left: 25%; width: 50%; height: 40%">
 
 ---
 
 ## Solution methods
 
-*   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam faucibus nisi 
-    eget hendrerit auctor. Etiam vitae velit sit amet nibh luctus tincidunt.
+*   Below we show a taxonomy of current DeepRL algorithms, separated between
+    model-free and model-based. 
 
-<img src = "imgs/img_background_rl_algorithms.png" style = "position: absolute; top: 40%; left: 15%; width: 65%; height: 50%">
+<img src = "imgs/img_background_rl_algorithms.png" style = "position: absolute; top: 45%; left: 20%; width: 60%; height: 45%">
 
 .footnote[.red[>] Image taken from SpinningUp in RL [course](https://spinningup.openai.com/en/latest/) by OpenAI]
+
+--
+
+*   The baselines we will use belong to the Policy Optimization class of algorithms,
+    and are highlighted below.
+
+<img src = "imgs/img_util_rectangle.png" style = "position: absolute; top: 71%; left: 19.5%; width: 23%; height: 21%">
+
+---
+
+## Policy Optimization
+
+--
+
+*   We focus on policy optimization algorithms, which try to learn the parameters
+    \\( \theta \\) of a parameterized policy \\( \pi_{\theta} \\) such that it maximizes
+    the following expected return:
+
+.center[![Policy-gradients cost](imgs/img_related_works_pg_base_cost.png)]
+
+--
+
+*   The **Vanilla Policy Gradients** algorithm updates the weights \\( \theta \\)
+    of the policy by computing an estimate \\( \hat g \\) of the gradient of 
+    the loss function from above (refer to section 2.1.3 for more details):
+
+.center[![Policy-gradients cost](imgs/img_related_works_pgradient.png)]
 
 ---
 
@@ -194,30 +284,152 @@ layout: false
 
 ---
 
----
-
 class: center, middle, inverse
 # Related works
 
 ---
 
-## SOTA DeepRL algorithms
-
-*   A simple equation with KaTex: \\( E_\pi \lbrace G_t | s_t = s \rbrace \\)
-
----
-
-## SOTA locomotion in complex terrain
-
-*   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam faucibus nisi 
-    eget hendrerit auctor. Etiam vitae velit sit amet nibh luctus tincidunt.
+class: center, middle
+# DeepRL algorithms used in locomotion
 
 ---
 
-## SOTA DeepRL benchmarks for locomotion
+## Trust Region Policy Optimization (TRPO)
 
-*   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam faucibus nisi 
-    eget hendrerit auctor. Etiam vitae velit sit amet nibh luctus tincidunt.
+*   Desc. 1
+*   Desc. 2
+
+<iframe src="https://www.youtube.com/embed/jeid0wIrSn4" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 40%; left: 20%; width: 60%; height: 50%"></iframe>
+
+---
+
+## Proximal Policy Optimization (PPO)
+
+*   Desc. 1
+*   Desc. 2
+
+<iframe src="https://d4mucfpksywv.cloudfront.net/openai-baselines-ppo/knocked-over-stand-up.mp4"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 50%; left: 5%; width: 40%; height: 30%"></iframe>
+
+<iframe src="https://d4mucfpksywv.cloudfront.net/openai-baselines-ppo/atlas.mp4"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 50%; left: 55%; width: 40%; height: 30%"></iframe>
+
+---
+
+## Soft Actor-Critic (SAC)
+
+*   Desc. 1
+*   Desc. 2
+
+<iframe src="https://www.youtube.com/embed/FmMPHL3TcrE?start=48" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 50%; left: 5%; width: 40%; height: 30%"></iframe>
+
+<iframe src="https://www.youtube.com/embed/KOObeIjzXTY" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 50%; left: 55%; width: 40%; height: 30%"></iframe>
+
+---
+
+class: center, middle
+# Recent DeepRL results in locomotion
+
+---
+
+## Benchmarking DeepRL for Continuous control
+
+*   Desc. 1
+*   Desc. 2
+
+---
+
+## DeepTerrainRL
+
+*   Desc. 1
+*   Desc. 2
+
+<iframe src="https://www.youtube.com/embed/KPfzRSBzNX4?start=59" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 40%; left: 20%; width: 60%; height: 50%"></iframe>
+
+---
+
+## DeepLoco
+
+*   Desc. 1
+*   Desc. 2
+
+<iframe src="https://www.youtube.com/embed/G4lT9CLyCNw?start=11" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 40%; left: 20%; width: 60%; height: 50%"></iframe>
+
+---
+
+## Emergence of locomotion behaviours in rich environments
+
+*   Desc. 1
+*   Desc. 2
+
+<iframe src="https://www.youtube.com/embed/hx_bgoTF7bs?start=11" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 50%; left: 22.5%; width: 50%; height: 40%"></iframe>
+
+---
+
+class: center, middle
+# DeepRL benchmarks for locomotion
+
+---
+
+## OpenAI-Gym: MuJoCo-py
+
+*   Desc. 1
+
+---
+
+## OpenAI-Gym: Roboschool
+
+*   Desc. 1
+
+---
+
+## Deepmind: Controlsuite
+
+*   Desc. 1
+
+---
+
+## Rllab and Garage
+
+*   Desc. 1
+
+---
+
+## Robosuite
+
+*   Desc. 1
+
+---
+
+## GPU-Accelerated Simulation
+
+*   Desc. 1
+
+---
+
+## TerrainRLSim
+
+*   Desc. 1
+
+---
+
+## Unity ML-Agents
+
+*   Desc. 1
 
 ---
 
@@ -226,23 +438,23 @@ class: center, middle, inverse
 
 ---
 
-## Proposal: Overview
+## Overview
 
 ---
 
-## Proposal: Q: Why?. A: Measure of intelligence
+## Why?: Measure of intelligence
 
 ---
 
-## Proposal: Q: Why?. A: Curriculum learning
+## Why?: Curriculum learning
 
 ---
 
-## Proposal: Are we reinventing the wheel?
+## Are we reinventing the wheel?
 
 ---
 
-## Proposal: Technical details (1)
+## Technical details (1)
 
 ---
 
@@ -251,19 +463,19 @@ class: center, middle, inverse
 
 ---
 
-## Current Progress: Framework (1)
+## Framework (1)
 
 ---
 
-## Current Progress: Framework (2)
+## Framework (2)
 
 ---
 
-## Current Progress: Framework (3)
+## Framework (3)
 
 ---
 
-## Current Progress: Framework (4)
+## Framework (4)
 
 ---
 
