@@ -505,6 +505,23 @@ class: center, middle, inverse
 
 ## Why? (0)
 
+--
+
+*   The ultimate goal we tried to pursue was to be able to transfer learned
+    policies into real-world platforms.
+
+--
+
+*   To achieve this, we consider that we ultimately would need to have
+    full control over our research platform, similar to *Peng et. al. [x]*
+
+-- 
+
+--
+
+<img src="imgs/img_proposal_long_term_goal.png"
+    style="position: absolute; top: 50%; left: 10%; width: 80%; height: 40%">
+
 ---
 
 ## Why? (1)
@@ -544,6 +561,14 @@ class: center, middle, inverse
 ---
 
 ## Technical details (1)
+
+---
+
+## Technical details (2)
+
+---
+
+## Technical details (3)
 
 ---
 
