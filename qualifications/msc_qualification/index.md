@@ -7,7 +7,7 @@ class: center, middle
 Author: Wilbert Santos Pumacay Huallpa
 <br>
 <br>
-Advisor: José Eduardo Ochoa Luna
+Advisor: Dr. José Eduardo Ochoa Luna
 
 ---
 
@@ -44,6 +44,84 @@ class: center, middle, inverse
 
 <img src="imgs/gif_reference_minitaur_sac.gif" style = "position: absolute; top: 58%; left: 8%; width: 40%; height: 30%">
 <img src="imgs/gif_reference_openai_dexterity.gif" style = "position: absolute; top: 58%; left: 52%; width: 40%; height: 30%">
+
+---
+
+## DeepRL and robotics
+
+<img src="imgs/gif_reference_minitaur_sac.gif" style = "position: absolute; top: 5%; left: 60%; width: 30%; height: 18%">
+
+--
+
+layout: true
+
+*   DeepRL is a promising approach for robotics. We can
+    learn behaviours end-to-end, by taking raw sensory inputs
+    and learning the required actions to achieve a desired goal.
+
+---
+
+count: false
+
+---
+
+count: false
+
+<img src="imgs/img_background_deeprl_intuition_1.png" style = "position: absolute; top: 50%; left: 15%; width: 70%; height: 40%">
+
+---
+
+count: false
+
+<img src="imgs/img_background_deeprl_intuition_2.png" style = "position: absolute; top: 50%; left: 15%; width: 70%; height: 40%">
+
+---
+
+count: false
+
+*   Still, there are various issues when dealing with DeepRL for
+    locomotion and robotics:
+
+    *   Agents usually **exploit** the dynamics of the environment.
+
+    *   There are issues when **transfering** learned policies to real-world 
+        platforms (**sim2real**).
+
+---
+
+<iframe src="https://www.youtube.com/embed/hx_bgoTF7bs?start=88" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 40%; left: 15%; width: 70%; height: 50%"></iframe>
+
+---
+
+<img src="imgs/gif_reference_minitaur_sac.gif" style = "position: absolute; top: 58%; left: 8%; width: 40%; height: 30%">
+<img src="imgs/gif_reference_openai_dexterity.gif" style = "position: absolute; top: 58%; left: 52%; width: 40%; height: 30%">
+
+---
+
+layout: false
+count: false
+
+## DeepRL and robotics
+
+<img src="imgs/gif_reference_minitaur_sac.gif" style = "position: absolute; top: 5%; left: 60%; width: 30%; height: 18%">
+
+*   DeepRL is a promising approach for robotics. We can
+    learn behaviours end-to-end, by taking raw sensory inputs
+    and learning the required actions to achieve a desired goal.
+
+*   Still, there are various issues when dealing with DeepRL for
+    locomotion and robotics:
+
+    *   Agents usually **exploit** the dynamics of the environment.
+
+    *   There are issues when **transfering** learned policies to real-world 
+        platforms (**sim2real**).
+
+*   One approach is to create an "ImageNet" like benchmark for 
+    locomotion tasks, which would help generalization of learned
+    behaviours, thus transfering better to the real-world.
 
 ---
 
@@ -87,8 +165,16 @@ class: center, middle, inverse
 
 ## The Solution
 
+**Key Objectives**
+
+*   Develop a locomotion framework to support creation of a wide range of
+    environments.
+
+*   Evaluate current DeepRL algorithms in these new more diverse and
+    complex environments.
+
 <img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_1/imgs/img_ch1_environments_from_to.png" 
-     style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+     style="position: absolute; top: 55%; left: 20%; width: 60%; height: 40%">
 
 ---
 
@@ -611,6 +697,54 @@ class: center, middle, inverse
 
 ---
 
+layout: true
+
+## Proposed environments and experiments
+
+---
+
+---
+
+count: false
+
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_terrain_parameterization_0.png" 
+     style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+count: false
+
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_terrain_parameterization_1.png" 
+     style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+count: false
+
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_terrain_parameterization_2.png" 
+     style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+count: false
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_terrain_parameterization_3.png" 
+     style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+count: false
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_terrain_parameterization_4.png" 
+     style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
+
+---
+
+layout: false
+
 ## Why not use an existing codebase?
 
 --
@@ -754,6 +888,34 @@ class: center, middle, inverse
 <iframe src="https://www.youtube.com/embed/PkgI0pIz4nM" 
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
         style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
+
+---
+
+## Framework: Open Source
+
+--
+
+*   All code is available, since first commit, in [this](https://github.com/wpumacay/tysocMjc)
+    and [this](https://github.com/wpumacay/tysoc) repositories.
+
+--
+
+*   Currently the framework can be used as a replacement for 
+    current benchmarks for locomotion tasks.
+
+--
+
+*   We have the following support:
+
+    *   MuJoCo as physics backend. Bullet is on the way.
+
+    *   Two rendering backends, and working on headless rendering.
+
+    *   Swappable API, without coupling to any specific backend.
+
+    *   Python bindings for easy usage.
+
+    *   Support for easy pip-install and currently deploying to PyPi.
 
 ---
 
