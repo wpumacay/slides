@@ -85,7 +85,7 @@ class: center, middle, inverse
 
 ---
 
-## The solution
+## The Solution
 
 <img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_1/imgs/img_ch1_environments_from_to.png" 
      style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
@@ -243,7 +243,7 @@ exclude: true
 
 <img src = "imgs/img_background_rl_algorithms.png" style = "position: absolute; top: 45%; left: 20%; width: 60%; height: 45%">
 
-.footnote[.red[>] Image taken from SpinningUp in RL [course](https://spinningup.openai.com/en/latest/) by OpenAI]
+<!--.footnote[.red[>] Image taken from SpinningUp in RL [course](https://spinningup.openai.com/en/latest/) by OpenAI]-->
 
 --
 
@@ -338,39 +338,33 @@ class: center, middle, inverse
 
 count: false
 class: center, middle
-# DeepRL algorithms used in locomotion
+# DeepRL algorithms used in locomotion (section 3.1)
 
 ---
 
-## Trust Region Policy Optimization (TRPO)
-
-*   Desc. 1
-*   Desc. 2
+## Trust Region Policy Optimization (Schulman et. al. (2015))
 
 <iframe src="https://www.youtube.com/embed/jeid0wIrSn4" 
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-        style="position: absolute; top: 40%; left: 20%; width: 60%; height: 50%"></iframe>
+        style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
 
 ---
 
-## Proximal Policy Optimization (PPO)
-
-*   Desc. 1
-*   Desc. 2
+## Proximal Policy Optimization (Schulman et. al. (2017))
 
 <iframe src="https://d4mucfpksywv.cloudfront.net/openai-baselines-ppo/knocked-over-stand-up.mp4"
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-        style="position: absolute; top: 50%; left: 5%; width: 40%; height: 30%"></iframe>
+        style="position: absolute; top: 40%; left: 5%; width: 45%; height: 30%"></iframe>
 
 <iframe src="https://d4mucfpksywv.cloudfront.net/openai-baselines-ppo/atlas.mp4"
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-        style="position: absolute; top: 50%; left: 55%; width: 40%; height: 30%"></iframe>
+        style="position: absolute; top: 40%; left: 55%; width: 45%; height: 30%"></iframe>
 
 ---
 
 exclude: true
 
-## Soft Actor-Critic (SAC)
+## Soft Actor-Critic (Haarnoja et. al. (2018))
 
 *   Desc. 1
 *   Desc. 2
@@ -387,32 +381,61 @@ exclude: true
 
 count: false
 class: center, middle
-# Recent DeepRL results in locomotion
+# Recent DeepRL results in locomotion (section 3.2)
 
 ---
 
-## Benchmarking DeepRL for Continuous control
+## Benchmarking DeepRL for Continuous control (Duan et. al. (2016))
 
-*   Desc. 1
-*   Desc. 2
+*   **Evaluated** various RL algorithms (up to TRPO and DDPG) for 
+    control tasks, ranging from simple control tasks, to more
+    complicated locomotion tasks.
+
+--
+
+*   Introduced a benchmark called **rllab**, which is still used
+    as a benchmark to test DeepRL algorithms in locomotion tasks.
+
+--
+
+*   Our proposal tries to essentially **make a similar study**, by 
+    proposing a new benchmark and evaluating current DeepRL algorithms.
 
 ---
 
-## DeepTerrainRL
+## Benchmarking DeepRL for Continuous control (Duan et. al. (2016))
 
-*   Desc. 1
-*   Desc. 2
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_3/imgs/img_ch3_rllab_locomotion.png" 
+     style = "position: absolute; top: 30%; left: 30%; width: 45%; height: 35%">
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_3/imgs/img_ch3_rllab_classic.png" 
+     style = "position: absolute; top: 65%; left: 10%; width: 40%; height: 25%">
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_3/imgs/img_ch3_rllab_hierarchical.png" 
+     style = "position: absolute; top: 65%; left: 50%; width: 40%; height: 25%">
+
+---
+
+## DeepTerrainRL (Peng et. al. (2016))
+
+*   Trained agents to traverse complex terrain by using DeepRL over
+    a parameterized FSM controller.
+
+*   The authors developed their own platform for their experiments, based
+    on the Bullet physics engine, and used in various articles from 2015
+    to this year.
 
 <iframe src="https://www.youtube.com/embed/KPfzRSBzNX4?start=59" 
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-        style="position: absolute; top: 40%; left: 20%; width: 60%; height: 50%"></iframe>
+        style="position: absolute; top: 50%; left: 25%; width: 50%; height: 40%"></iframe>
 
 ---
 
-## DeepLoco
+## DeepLoco (Peng et. al. (2017))
 
-*   Desc. 1
-*   Desc. 2
+*   A follow-up from the work mentioned previously.
+
+*   Trained a hierarchical controller to complete more complicated tasks.
 
 <iframe src="https://www.youtube.com/embed/G4lT9CLyCNw?start=11" 
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
@@ -420,68 +443,63 @@ class: center, middle
 
 ---
 
-## Emergence of locomotion behaviours in rich environments
+## Emergence of locomotion behaviours (Heess et. al. (2017))
 
-*   Desc. 1
-*   Desc. 2
+*   Trained agents from scratch (tabula rasa) to traverse obstacle
+    courses of varying difficulty (unlike previous works).
+
+*   The environment was created with curricula that increasingly 
+    adjusted the difficulty of the environment.
 
 <iframe src="https://www.youtube.com/embed/hx_bgoTF7bs?start=11" 
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-        style="position: absolute; top: 50%; left: 22.5%; width: 50%; height: 40%"></iframe>
+        style="position: absolute; top: 55%; left: 22.5%; width: 50%; height: 40%"></iframe>
 
 ---
 
 count: false
 class: center, middle
-# DeepRL benchmarks for locomotion
+# DeepRL benchmarks for locomotion (section 3.3)
 
 ---
 
-## OpenAI-Gym: MuJoCo-py
+## A whole zoo of benchmarks
 
-*   Desc. 1
+--
 
----
+*   OpeanAI-Gym + [MuJoCo-py](https://github.com/openai/mujoco-py)
 
-## OpenAI-Gym: Roboschool
+--
 
-*   Desc. 1
+*   OpenAI-Gym + [Roboschool](https://blog.openai.com/roboschool/)
 
----
+--
 
-## Deepmind: Controlsuite
+*   Deepmind's [Controlsuite](https://github.com/deepmind/dm_control)
 
-*   Desc. 1
+--
 
----
+*   [Rllab](https://github.com/rll/rllab) and [Garage](https://github.com/rlworkgroup/garage)
 
-## Rllab and Garage
+--
 
-*   Desc. 1
+*   [Robosuite](https://github.com/StanfordVL/robosuite)
 
----
+--
 
-## Robosuite
+*   NVIDIA's [Gpu-Accelerated Simulator](https://sites.google.com/view/accelerated-gpu-simulation/home)
 
-*   Desc. 1
+--
 
----
+*   [TerrainRLSim](https://www.cs.ubc.ca/~gberseth/blog/terrainrl-sim.html)
 
-## GPU-Accelerated Simulation
+--
 
-*   Desc. 1
+*   [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents)
 
----
+--
 
-## TerrainRLSim
-
-*   Desc. 1
-
----
-
-## Unity ML-Agents
-
-*   Desc. 1
+*   ...
 
 ---
 
@@ -495,15 +513,36 @@ class: center, middle, inverse
 
 --
 
-*   Develop a **framework** for locomotion tasks (like a Game Engine).
+*   Develop a **framework** for locomotion tasks, analogous to a 
+    Game Engine. This would allow us to have full control over
+    the tasks we can create.
 
-*   Create a **new benchmark** with this new framework.
+--
 
-*   **Evaluate** current DeepRL algorithms.
+*   Create a **new benchmark** with this framework, consisting of
+    a wide range of environments ranging from low to high complexity.
+
+--
+
+*   **Evaluate** current DeepRL algorithms in this benchmark, in order
+    to explore the upsides and downsides of these algorithms.
+
+--
+
+*   The scope of this thesis will cover:
+
+    *   Development of the a core backend-agnostic framework
+
+    *   Support for multiple physics backends
+
+    *   APIs for environment creation via procedural terrain generation
+        and static scenes.
+
+    *   A set of baselines tested in our framework.
 
 ---
 
-## Why? (0)
+## A long-term goal
 
 --
 
@@ -512,10 +551,8 @@ class: center, middle, inverse
 
 --
 
-*   To achieve this, we consider that we ultimately would need to have
-    full control over our research platform, similar to *Peng et. al. [x]*
-
--- 
+*   To achieve this, we consider that we will need to have full control 
+    over our research platform.
 
 --
 
@@ -524,12 +561,12 @@ class: center, middle, inverse
 
 ---
 
-## Why? (1)
+## A measure of intelligence
 
 --
 
 *   We based our objective on the measure of intelligence proposed by 
-    *Legg and Marcus [x]*.
+    *Legg and Marcus (2007)*.
 
 --
 
@@ -548,27 +585,121 @@ class: center, middle, inverse
 
 ---
 
-## Why? (2)
+## Curricula learning
+
+--
+
+*   As described by *Bengio et. al. (2009)*, the order in which we 
+    present the data to our models during training affects the final
+    training results.
+
+--
+
+*   This idea was used by *Heess et. al. (2017)* to train their agents
+    in a increasingly more difficult environment.
+
+--
+
+*   Our proposal includes support for the creation of this type of
+    environments via the appropiate APIs that use procedural terrain
+    generation.
+
+--
+
+*   To achieve this we parameterize our terrain generators and control
+    these parameters as needed.
 
 ---
 
-## Why? (3)
+## Why not use an existing codebase?
+
+--
+
+*   As far as we have checked we haven't found a codebase we could work
+    with that satisfies our requirements:
+
+    *   Support for multiple swappable backends (no extra compilation).
+
+    *   Fully open source.
+
+    *   Extensible and stable.
+
+    *   Documented and supported.
+
+--
+
+*   What about Gazebo-ROS and V-Rep?. Still, we consider them not the best
+    option for our requirements.
 
 ---
 
-## Are we reinventing the wheel?
+## Technical details: Backend support
+
+--
+
+*   The core functionality serves as a backend-independent
+    abstract simulation. 
+
+--
+
+*   It's abstract in the sense that it can't be simulated until
+    we instantiate a specific backend.
+
+--
+
+*   This is similar to how Tensorflow and PyTorch handle instantiation
+    of the required backend for computation.
+
+--
+
+*   We define an abstract scenario that contains the abstract agents,
+    terrain generators, and sensors (analogous to a computation graph).
+
+--
+
+*   Once we need to simulate the given scenario, we just instantiate
+    with a given backend.
 
 ---
 
-## Technical details (1)
+## Technical details: Instantiation process
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_framework_flow.png"
+     style="position: absolute; top: 30%; left: 5%; width: 90%; height: 55%">
 
 ---
 
-## Technical details (2)
+## Technical details: Framework architecture
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_framework_architecture.png"
+     style="position: absolute; top: 25%; left: 5%; width: 90%; height: 65%">
 
 ---
 
-## Technical details (3)
+## Technical details: Agents core functionality
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_agents_core.png"
+     style="position: absolute; top: 28%; left: 5%; width: 90%; height: 65%">
+
+---
+
+## Technical details: Terrain generators core functionality
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_terrain_core.png"
+     style="position: absolute; top: 28%; left: 5%; width: 90%; height: 65%">
+
+---
+
+## Technical details: Sensors functionality
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_sensors_core_1.png"
+     style="position: absolute; top: 28%; left: 5%; width: 30%; height: 30%">
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_sensors_core_2.png"
+     style="position: absolute; top: 28%; left: 35%; width: 30%; height: 30%">
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_sensors_core_3.png"
+     style="position: absolute; top: 28%; left: 65%; width: 30%; height: 50%">
 
 ---
 
@@ -578,19 +709,51 @@ class: center, middle, inverse
 
 ---
 
-## Framework (1)
+## Framework: Agents
+
+<iframe src="https://www.youtube.com/embed/5zv5SK0o92I" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
 
 ---
 
-## Framework (2)
+## Framework: Terrain - proof of concept
+
+<iframe src="https://www.youtube.com/embed/xWdNFGlhlOA" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
 
 ---
 
-## Framework (3)
+## Framework: Sensors - heightfields
+
+<iframe src="https://www.youtube.com/embed/-EJMER5AGRQ" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
 
 ---
 
-## Framework (4)
+## Framework: Sensors - agent internals
+
+<iframe src="https://www.youtube.com/embed/c0R81VBZ72o" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
+
+---
+
+## Framework: Python-bindings + dynamic loading
+
+<iframe src="https://www.youtube.com/embed/_YWrLDPcmzI" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
+
+---
+
+## Framework: Supported Agents
+
+<iframe src="https://www.youtube.com/embed/PkgI0pIz4nM" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%"></iframe>
 
 ---
 
@@ -602,15 +765,24 @@ class: center, middle, inverse
 
 ## Preliminary Conclusions
 
----
+*   Difficulty in the engineering aspect, and so far there are no 
+    related works that follow our approach.
 
-count: false
-class: center, middle, inverse
-# References
+--
 
----
+*   Several issues might arrive during evaluation, so follow a unit-test
+    approach to avoid common pitfalls.
 
-## References
+--
+
+*   The amount of compute available might limit us regarding the final
+    behaviours learned, as these methods are data-hungry.
+
+--
+
+*   We also emphasize that our focus (in the scope of this thesis) is on 
+    the framework itself, and so far our framework most of the main
+    features of various currently used benchmarks.
 
 ---
 
