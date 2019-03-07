@@ -1,3 +1,4 @@
+count: false
 class: center, middle
 
 # Evaluation of Deep Reinforcement Learning algorithms in Rich and Complex Environments for Locomotion Tasks
@@ -20,6 +21,7 @@ Advisor: José Eduardo Ochoa Luna
 *   Preliminary conclusions
 
 ---
+count: false
 class: center, middle, inverse
 # Motivation
 
@@ -35,7 +37,7 @@ class: center, middle, inverse
 
 ---
 
-## DeepRL in locomotion
+## DeepRL in locomotion and manipulation
 
 <img src="imgs/gif_reference_emergence_locomotion.gif" style = "position: absolute; top: 21%; left: 8%; width: 40%; height: 30%">
 <img src="imgs/gif_reference_deepmimic.gif" style = "position: absolute; top: 21%; left: 52%; width: 40%; height: 30%">
@@ -45,7 +47,7 @@ class: center, middle, inverse
 
 ---
 
-## DeepRL benchmarks for locomotion
+## The Problem
 
 --
 
@@ -59,28 +61,38 @@ class: center, middle, inverse
 
 --
 
-*   Therefore, we focus on making the required infrastructure and support to
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_3/imgs/img_ch3_rllab_locomotion.png"
+     style="position: absolute; top: 50%; left: 15%; width: 70%; height: 50%">
+
+---
+
+## The Solution
+
+--
+
+*   We will focus on making the required infrastructure and support to
     allow researchers to build diverse and complex environments.
 
 --
 
-*   To do so, we propose to build a full locomotion framework from scratch, using
-    only widely used physics engines as core dependencies.
+*   To do so, we propose to build a full locomotion framework from scratch, 
+    using only widely used physics engines as core dependencies.
 
 --
 
-*   Also, we focus on evaluating current state-of-the-art (SOTA) DeepRL algorithms
+*   Also, we focus on evaluating current state-of-the-art DeepRL algorithms
     in a new benchmark consisting of tasks built using the proposed framework.
 
 ---
 
-## DeepRL benchmarks for locomotion
+## The solution
 
 <img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_1/imgs/img_ch1_environments_from_to.png" 
      style="position: absolute; top: 30%; left: 10%; width: 80%; height: 60%">
 
 ---
 
+count: false
 class: center, middle, inverse
 # Background
 
@@ -108,22 +120,32 @@ class: center, middle, inverse
 
 ---
 
+exclude: true
+
 ## Learning Representations (Deep Learning)
 
 --
+
+exclude: true
 
 *   Deep Learning allows us to learn useful representation by using deep models
     trained end-to-end, instead of handcrafting the required features for a given task.
 
 --
 
+exclude: true
+
 <img src="imgs/img_background_deeprl_intuition_1.png" style = "position: absolute; top: 50%; left: 15%; width: 70%; height: 40%">
 
 ---
 
+exclude: true
+
 ## Deep Reinforcement Learning (DeepRL)
 
 --
+
+exclude: true
 
 *   By combining Reinforcement Learning with deep learning models we can learn to take
     decisions directly from raw sensory inputs, without handcrafting features, e.g. learn
@@ -131,13 +153,19 @@ class: center, middle, inverse
 
 --
 
+exclude: true
+
 <img src="imgs/img_background_deeprl_dqn.png" style = "position: absolute; top: 50%; left: 15%; width: 70%; height: 40%">
 
 ---
 
+exclude: true
+
 ## Learning behaviours end-to-end
 
 --
+
+exclude: true
 
 *   By using DeepRL we can train agents end-to-end in a very different approach to
     traditional pipelines, e.g. for robotics we could train agents without crafting
@@ -145,18 +173,26 @@ class: center, middle, inverse
 
 --
 
+exclude: true
+
 <img src="imgs/img_background_deeprl_intuition_2.png" style = "position: absolute; top: 50%; left: 15%; width: 70%; height: 40%">
 
 ---
+
+exclude: true
 
 ## DeepRL
 
 --
 
+exclude: true
+
 *   Deep models (whose parameters we represent by \\( \theta \\)) can be used to 
     parameterize various components of the RL problem.
 
 --
+
+exclude: true
 
 *   The State-Value and Action-Value functions: 
     *   \\( V_\theta (s) \\)
@@ -164,11 +200,15 @@ class: center, middle, inverse
 
 --
 
+exclude: true
+
 *   The Policy :
     *   Deterministic: \\( a = \pi_{\theta}(s) \\)
     *   Stochastic: \\( a \sim \pi_{\theta}(.|s) \\)
 
 --
+
+exclude: true
 
 *   The Model:
     *   \\( s' = f_\theta (s, a) \\)
@@ -177,8 +217,14 @@ class: center, middle, inverse
 
 ## DeepRL
 
+*   DeepRL = Deep Learning + Reinforcement Learning
+
+--
+
 *   Deep models (whose parameters we represent by \\( \theta \\)) can be used to 
     parameterize various components of the RL problem.
+
+--
 
 *   The baselines we will focus on deal mainly with parameterized policies
 
@@ -190,6 +236,8 @@ class: center, middle, inverse
 
 ## Solution methods
 
+--
+
 *   Below we show a taxonomy of current DeepRL algorithms, separated between
     model-free and model-based. 
 
@@ -199,16 +247,20 @@ class: center, middle, inverse
 
 --
 
-*   The baselines we will use belong to the Policy Optimization class of algorithms,
+*   The baselines we will use belong to the **Policy Optimization** class of algorithms,
     and are highlighted below.
 
 <img src = "imgs/img_util_rectangle.png" style = "position: absolute; top: 71%; left: 19.5%; width: 23%; height: 21%">
 
 ---
 
+exclude: true
+
 ## Policy Optimization
 
 --
+
+exclude: true
 
 *   We focus on policy optimization algorithms, which try to learn the parameters
     \\( \theta \\) of a parameterized policy \\( \pi_{\theta} \\) such that it maximizes
@@ -217,6 +269,8 @@ class: center, middle, inverse
 .center[![Policy-gradients cost](imgs/img_related_works_pg_base_cost.png)]
 
 --
+
+exclude: true
 
 *   The **Vanilla Policy Gradients** algorithm updates the weights \\( \theta \\)
     of the policy by computing an estimate \\( \hat g \\) of the gradient of 
@@ -275,20 +329,14 @@ count: false;
 
 ---
 
+count: false
 layout: false
-
-## Locomotion environments
-
-*   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam faucibus nisi 
-    eget hendrerit auctor. Etiam vitae velit sit amet nibh luctus tincidunt.
-
----
-
 class: center, middle, inverse
 # Related works
 
 ---
 
+count: false
 class: center, middle
 # DeepRL algorithms used in locomotion
 
@@ -320,6 +368,8 @@ class: center, middle
 
 ---
 
+exclude: true
+
 ## Soft Actor-Critic (SAC)
 
 *   Desc. 1
@@ -335,6 +385,7 @@ class: center, middle
 
 ---
 
+count: false
 class: center, middle
 # Recent DeepRL results in locomotion
 
@@ -380,6 +431,7 @@ class: center, middle
 
 ---
 
+count: false
 class: center, middle
 # DeepRL benchmarks for locomotion
 
@@ -433,6 +485,7 @@ class: center, middle
 
 ---
 
+count: false
 class: center, middle, inverse
 # Proposal
 
@@ -440,13 +493,49 @@ class: center, middle, inverse
 
 ## Overview
 
+--
+
+*   Develop a **framework** for locomotion tasks (like a Game Engine).
+
+*   Create a **new benchmark** with this new framework.
+
+*   **Evaluate** current DeepRL algorithms.
+
 ---
 
-## Why?: Measure of intelligence
+## Why? (0)
 
 ---
 
-## Why?: Curriculum learning
+## Why? (1)
+
+--
+
+*   We based our objective on the measure of intelligence proposed by 
+    *Legg and Marcus [x]*.
+
+--
+
+<img src="https://raw.githubusercontent.com/wpumacay/msc_qualif_doc/master/chapters/chapter_4/imgs/img_ch4_measure_tasks_agents.png"
+    style="position: absolute; top: 60%; left: 25%; width: 50%; height: 35%">
+
+--
+
+*   Intuitively, we measure the performance in a wide range of tasks, and
+    weight them by a factor that decreases with complexity.
+
+--
+
+*   Thus, our efforts go into supporting the creation of a wide set of
+    tasks with varying complexity.
+
+---
+
+## Why? (2)
+
+---
+
+## Why? (3)
 
 ---
 
@@ -458,6 +547,7 @@ class: center, middle, inverse
 
 ---
 
+count: false
 class: center, middle, inverse
 # Current Progress
 
@@ -479,6 +569,7 @@ class: center, middle, inverse
 
 ---
 
+count: false
 class: center, middle, inverse
 # Preliminary conclusions
 
@@ -487,6 +578,8 @@ class: center, middle, inverse
 ## Preliminary Conclusions
 
 ---
+
+count: false
 class: center, middle, inverse
 # References
 
@@ -496,6 +589,7 @@ class: center, middle, inverse
 
 ---
 
+count: false
 class: center, middle, inverse
 # Thanks for your attention. Any questions?
 
