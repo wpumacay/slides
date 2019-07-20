@@ -1,0 +1,70 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage{amssymb}
+\usepackage{apacite}
+\usepackage{natbib}
+\usepackage{bibentry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{lipsum}
+
+\title{Deep Reinforcement Learning Tutorials}
+\author{Wilbert Santos Pumacay Huallpa}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Logistics}
+    Outline of the sessions:
+    \begin{itemize}
+        \item Tutorial 0: Introduction
+        \item Tutorial 1: Tabular value-based methods
+        \item Tutorial 2: Value-based methods with Function Approximation
+        \item Tutorial 3: Policy Optimization and Policy Gradient methods
+    \end{itemize}
+
+    \pause
+
+    Some code (hopefully):
+    \begin{itemize}
+        \item Tutorial 0: OpenAI-Gym.
+        \item Tutorial 1: MC-control, SARSA and Q-learning (Tabular).
+        \item Tutorial 2: Deep Q-learning (DQN)
+        \item Tutorial 3: Behaviour cloning, Vanilla Policy Gradients, DDPG.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for today}
+    \begin{itemize}
+        \item Introduction to Reinforcement Learning
+            \begin{itemize}
+                \item What is Reinforcement Learning?
+                \item Defining the problem.
+                \item Defining the solution.
+            \end{itemize}
+        \item Introduction to OpenAI-Gym.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%% Section 1 - Intro to RL %%%%%%%%%%%%%%%%%%%
+\section{Introduction to Reinforcement Learning}
+\input{./sec-intro/ssec_1_rl_motivation}
+\input{./sec-intro/ssec_2_rl_problem}
+\input{./sec-intro/ssec_3_rl_solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{apacite}
+\bibliography{main}
+
+\end{document}
+
