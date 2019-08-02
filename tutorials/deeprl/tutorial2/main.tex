@@ -1,0 +1,51 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage{amssymb}
+\usepackage{apacite}
+\usepackage{natbib}
+\usepackage{bibentry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{lipsum}
+
+\title{Deep Reinforcement Learning Tutorials}
+\author{Wilbert Santos Pumacay Huallpa}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline for today}
+    \begin{itemize}
+        \item Policy Evaluation and Control using Dynamic Programming (DP)
+            \begin{itemize}
+                \item Bellman Equations
+                \item Policy Evaluation
+                \item Policy Improvement
+                \item Policy Iteration and Value Iteration
+            \end{itemize}
+        \item Solving Gridworlds using Policy Iteration and Value Iteration.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%% Section 2 - Planning by Dynamic Programming %%%%%%%%%%%%%%%%%%%
+\section{Planning by Dynamic Programming}
+\input{./sec-dynamic-programming/ssec_1_bellman_equations}
+\input{./sec-dynamic-programming/ssec_2_policy_evaluation}
+\input{./sec-dynamic-programming/ssec_3_policy_improvement}
+\input{./sec-dynamic-programming/ssec_4_policy_iteration_and_value_iteration}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{apacite}
+\bibliography{main}
+
+\end{document}
+
