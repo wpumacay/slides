@@ -10,3 +10,4 @@
 *.out 
 *.lot 
 *.lof
+.ipynb_checkpoints/
