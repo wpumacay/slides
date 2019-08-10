@@ -1,0 +1,61 @@
+
+%% * Recap v, q, pi
+
+\begin{frame}
+    \frametitle{Recap}
+    \pause
+    \begin{itemize}
+        \item We defined a \textbf{Policy} $\pi$, as a mapping between states
+              to actions. Our agents use policies to act in the environment.
+              \begin{gather*}
+                \pi : \mathbb{S} \rightarrow \mathbb{A} \scriptstyle{\text{; Deterministic policy}} \\
+                \pi : \mathbb{S} \times \mathbb{A} \rightarrow [0,1] \scriptstyle{\text{; Stochastic policy}}
+              \end{gather*}
+
+        \pause
+
+        \item We defined the \textbf{State-value function} $V^{\pi}(s)$ as the expected return
+              we would get from a given state $s$ by following policy $\pi$.
+            \begin{gather*}
+                V(s) = \mathbb{E}_{\pi} \lbrace \sum_{t=0}^{\infty} \gamma^{t} r_{t+1} | s_{t} = s \rbrace
+            \end{gather*}
+
+        \pause
+
+        \item We defined the \textbf{Action-value function} $Q^{\pi}(s,a)$ as the expected return
+              we would get by starting at state $s$, taking a given action $a$ (not necessarily from
+              the policy $\pi$), and then following $\pi$.
+            \begin{gather*}
+                Q(s,a) = \mathbb{E}_{\pi} \lbrace \sum_{t=0}^{\infty} \gamma^{t} r_{t+1} | s_{t} = s, a_{t} = a \rbrace
+            \end{gather*}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Recap}
+
+    \begin{itemize}
+        \item We also defined the objective of our agent as finding a policy $\pi^{*}$ that
+              maximizes the expected return over all possible policies. We called it an 
+              \textbf{optimal policy}.
+              \begin{gather*}
+                \pi^{*} = \arg \max_{\pi} \mathbb{E}_{\pi} \lbrace \sum_{t=0}^{\infty} \gamma^{t} r_{t+1} \rbrace
+              \end{gather*}
+
+        \pause
+
+        \item Related to this policy we also defined the corresponding optimal versions
+              of both State-value and Action-value functions as $V^{*}(s)$ and $Q^{*}(s,a)$.
+              \begin{gather*}
+                V^{*} = V^{\pi^{*}} \,, V^{*}(s) \geq V^{\pi} \,\, \forall \, s,\pi \\
+                Q^{*} = Q^{\pi^{*}} \,, Q^{*}(s,a) \geq Q^{\pi}(s,a) \,\, \forall \, s,a,\pi
+              \end{gather*}
+
+        \pause
+
+        \item So, today we will discuss a first set of methods for finding these functions using
+              \textbf{Dynamic Programming}.
+    \end{itemize}
+
+\end{frame}

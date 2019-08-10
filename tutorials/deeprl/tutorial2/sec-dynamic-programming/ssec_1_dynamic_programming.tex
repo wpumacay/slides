@@ -1,0 +1,64 @@
+
+%% * Define the approach we will follow
+%% * Recap v, q, pi
+%% * Evaluating a policy: v^pi, q^pi
+%%   * Define bellman expectation equations
+%%   * Backup diagrams for Bellman Expectation Equations
+%%   * Policy evaluation
+%%   * Gridworld example
+%% * Optimality: v*, q*
+%%   * Define bellman optimality equations
+%%   * Backup diagrams for Bellman Optimality Equations
+%%   * Policy iteration
+%%   * Gridworld example
+%%   * Value iteration
+%%   * Gridworld example
+%%   * Generalized Policy Iteration
+
+\subsection{Dynamic Programming} \title{Dynamic Programming} \author{} \date{}
+\begin{frame}[plain,c]
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{You might want to check these resources}
+    Below there are some lectures and resources that I think you should check
+    in more depth after this tutorial. I'll try to give the required high-level
+    overview such that you will feel comfortable with these awesome resources.
+    \begin{itemize}
+        \item \href{https://youtu.be/Nd1-UUMVfz4}{David Silver - lecture 3 on Dynamic Programming}
+        \item \href{https://youtu.be/hMbxmRyDw5M}{Hado Van Hasselt - lecture 3 on Dynamic Programming}
+        \item \href{http://incompleteideas.net/book/RLbook2018.pdf}{Sutton and Barto RL book - chapter 4}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dynamic Programming (DP)}
+    \pause
+    \begin{itemize}
+        \item Fibonacci?, Floyd Warshall?, Top Coder?, ... and various other problems
+              can be solved using this approach.
+
+        \pause
+
+        \item Recall that in those the key component was memoization and recursive
+              formulation.
+
+        \pause
+
+        \item These two properties will appear in various problems, and can be defined
+              as follows:
+              \pause
+              \begin{itemize}
+                \item Principle of Optimality (\textbf{That recursive formulation}): If a
+                      problem presents this property, then the optimal solution can
+                      be decomposed solutions to subproblems in a recursive way.
+
+                \pause
+                
+                \item Overlapping subproblems (\textbf{That memoization technique}): The 
+                      solutions to the subproblems can be cached and reused.
+              \end{itemize}
+
+    \end{itemize}
+\end{frame}
