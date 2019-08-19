@@ -1,0 +1,7 @@
+jupyter
+ipython
+ipykernel
+numpy
+matplotlib
+gym
+tqdm
